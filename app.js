@@ -3,7 +3,7 @@ require('colors');
 console.clear()
 
 
-const { guardarDB } = require('./helpers/guardarArchivo');
+const { guardarDB, leerDB } = require('./helpers/guardarArchivo');
 const { inquirerMenu, inquirerPausa, leerInput } = require('./helpers/inquirer');
 const Tareas = require('./models/tareas');
 
@@ -12,6 +12,12 @@ const main = async () => {
 
     let opt = '';
     const tareas= new Tareas();
+
+    const tareasDB= leerDB();
+
+    if(tareasDB){
+        
+    }
 
     do {
         //Imprime el menu
