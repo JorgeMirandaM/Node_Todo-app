@@ -29,18 +29,24 @@ const mostrarMenu = () => {
 
         readline.question('Seleccione una opción: ', (opt) => {
             readline.close();
+            resolve(opt);
         })
     })
 }
 
 const pausa = () => {
-    const readline = require('readline').createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
 
-    readline.question(`\nPresione ${'ENTER'.green} para continuar\n`, () => {
-        readline.close();
+
+    return new Promise(resolve=>{
+        const readline = require('readline').createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+    
+        readline.question(`\nPresione ${'ENTER'.green} para continuar\n`, () => {
+            readline.close();
+            resolve();
+        })
     })
 }
 
